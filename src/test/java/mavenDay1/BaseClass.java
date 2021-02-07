@@ -350,19 +350,34 @@ public class BaseClass {
 		}
 		
 		//Create Excel sheet 
-		private void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException {
+		private void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException, AWTException {
 			File file  = new File(path);
 			FileInputStream stream = new FileInputStream(file);
 			Workbook workbook = new XSSFWorkbook(stream);
 			Sheet createSheet = workbook.createSheet(sheetname);
 			Row createRow = createSheet.createRow(rowNo);
 			Cell createCell = createRow.createCell(cellNo);
+			String value = createCell.getStringCellValue();
 			
-			
-			List li =  new ArrayList();
-			li.add(createCell);
+			List<WebElement> li = new ArrayList<WebElement>();
+				
 			for (int i = 0; i < li.size(); i++) {
-				li.get(i);
+					
+					
+				}
+			
+			//Robot Class
+			
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_C);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			robot.keyRelease(KeyEvent.VK_C);
+			
+			
+			
+			
+			
 			      
 			}
 			
@@ -372,7 +387,7 @@ public class BaseClass {
 			
 			
 		}
-		}
+		
 		
 		
 			
