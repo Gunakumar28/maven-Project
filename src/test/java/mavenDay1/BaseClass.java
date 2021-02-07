@@ -333,6 +333,7 @@ public class BaseClass {
 			WebElement findElement = driver.findElement(By.xpath(data));
 
 		}
+		//findElements
 		public void findelements(String data) {
 			List<WebElement> findElements = driver.findElements(By.xpath(data));
 			for (int i = 0; i < findElements.size(); i++) {
@@ -345,20 +346,29 @@ public class BaseClass {
 			
 
 		}
+		//scrollDown
 		public void scrollDown(String string) {
 			// TODO Auto-generated method stub
 			
 		}
+		
+		//List
 		List <String>li= new ArrayList<String>();
 		//Create Excel sheet 
+
+
+
 		public void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException {
+
 			File file  = new File(path);
 			FileInputStream stream = new FileInputStream(file);
 			Workbook workbook = new XSSFWorkbook(stream);
 			Sheet createSheet = workbook.createSheet(sheetname);
 			Row createRow = createSheet.createRow(rowNo);
 			
-			for (int i = 0; i < li.size(); i++) {
+			
+			
+	for (int i = 0; i < li.size(); i++) {
 				
 				Cell createCell = createRow.createCell(i);
 				createCell.setCellValue(li.get(i));
@@ -368,14 +378,30 @@ public class BaseClass {
 			workbook.write(fo);
 			
 }
-		public void findelements(List<WebElement> prices) {
-			for (int i = 0; i < prices.size(); i++) {
-				String text = prices.get(i).getText();
-				li.add(text);
-				
-			}
 		
 		
+					
+					
+
+			
+			//Robot Class
+			public void controlC() throws AWTException {
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_C);
+			robot.keyRelease(KeyEvent.VK_CONTROL);
+			robot.keyRelease(KeyEvent.VK_C);
+			}		
+		
+		public void findelements() {
+			
+
+		}
+			
+		
+		
+		
+
 			
 				
 				
@@ -383,7 +409,7 @@ public class BaseClass {
 			
 			
 		}
-		}
+		
 		
 		
 			
