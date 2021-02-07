@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -348,23 +349,33 @@ public class BaseClass {
 			// TODO Auto-generated method stub
 			
 		}
-		
+		List <String>li= new ArrayList<String>();
 		//Create Excel sheet 
-		private void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException {
+		public void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException {
 			File file  = new File(path);
 			FileInputStream stream = new FileInputStream(file);
 			Workbook workbook = new XSSFWorkbook(stream);
 			Sheet createSheet = workbook.createSheet(sheetname);
 			Row createRow = createSheet.createRow(rowNo);
-			Cell createCell = createRow.createCell(cellNo);
 			
-			
-			List li =  new ArrayList();
-			li.add(createCell);
 			for (int i = 0; i < li.size(); i++) {
-				li.get(i);
-			      
+				
+				Cell createCell = createRow.createCell(i);
+				createCell.setCellValue(li.get(i));
+				}
+			
+			FileOutputStream fo= new FileOutputStream(file);
+			workbook.write(fo);
+			
+}
+		public void findelements(List<WebElement> prices) {
+			for (int i = 0; i < prices.size(); i++) {
+				String text = prices.get(i).getText();
+				li.add(text);
+				
 			}
+		
+		
 			
 				
 				
