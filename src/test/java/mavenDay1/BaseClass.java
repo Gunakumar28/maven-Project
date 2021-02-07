@@ -375,8 +375,8 @@ public class BaseClass {
 			robot.keyRelease(KeyEvent.VK_C);
 			}
 		
-		private void findelements() {
-			// TODO Auto-generated method stub
+		public void findelements() {
+			
 
 		}
 			
