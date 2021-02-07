@@ -373,13 +373,12 @@ public class BaseClass {
 			robot.keyPress(KeyEvent.VK_C);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_C);
-			
-			
-			
-			
-			
-			      
 			}
+		
+		private void findelements() {
+			// TODO Auto-generated method stub
+
+		}
 			
 				
 				
