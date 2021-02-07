@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -332,6 +333,7 @@ public class BaseClass {
 			WebElement findElement = driver.findElement(By.xpath(data));
 
 		}
+		//findElements
 		public void findelements(String data) {
 			List<WebElement> findElements = driver.findElements(By.xpath(data));
 			for (int i = 0; i < findElements.size(); i++) {
@@ -344,41 +346,62 @@ public class BaseClass {
 			
 
 		}
+		//scrollDown
 		public void scrollDown(String string) {
 			// TODO Auto-generated method stub
 			
 		}
 		
+		//List
+		List <String>li= new ArrayList<String>();
 		//Create Excel sheet 
-		private void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException, AWTException {
+
+
+
+		public void readAndWriteValueFromExcel(String path, String sheetname,int rowNo,int cellNo) throws IOException {
+
 			File file  = new File(path);
 			FileInputStream stream = new FileInputStream(file);
 			Workbook workbook = new XSSFWorkbook(stream);
 			Sheet createSheet = workbook.createSheet(sheetname);
 			Row createRow = createSheet.createRow(rowNo);
-			Cell createCell = createRow.createCell(cellNo);
-			String value = createCell.getStringCellValue();
 			
-			List<WebElement> li = new ArrayList<WebElement>();
+			
+			
+	for (int i = 0; i < li.size(); i++) {
 				
-			for (int i = 0; i < li.size(); i++) {
-					
-					
+				Cell createCell = createRow.createCell(i);
+				createCell.setCellValue(li.get(i));
 				}
 			
-			//Robot Class
+			FileOutputStream fo= new FileOutputStream(file);
+			workbook.write(fo);
 			
+}
+		
+		
+					
+					
+
+			
+			//Robot Class
+			public void controlC() throws AWTException {
 			Robot robot = new Robot();
 			robot.keyPress(KeyEvent.VK_CONTROL);
 			robot.keyPress(KeyEvent.VK_C);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_C);
-			}
+			}		
 		
 		public void findelements() {
 			
 
 		}
+			
+		
+		
+		
+
 			
 				
 				
